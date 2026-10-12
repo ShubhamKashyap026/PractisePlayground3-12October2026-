@@ -193,3 +193,147 @@ enum Theme {
 let theme = Theme.dark
 let background = theme == .dark ? "black" : "white"
 print(background)
+
+
+// Loops
+// For Loop
+let platforms = ["iOS", "macOS", "tvOS", "watchOS"]
+
+for os in platforms {
+//    os = "visionOS"
+    print("Swift runs great on \(os).")
+}
+
+for platform in platforms {
+    print("\(platform) works great with Swift")
+}
+
+func autoTimeTableGenerator(inputNumber : Int, upto: Int) { // Time Table Generator
+    print("The time table for \(inputNumber) is:")
+    for i in 1...upto {
+        print("\(inputNumber) * \(i) is \(inputNumber * i)")
+    }
+}
+
+autoTimeTableGenerator(inputNumber: 12, upto: 10)
+// ..< // Exclusive range
+// ... // Inclusive range
+
+// Nested Loops
+let commonPeople = ["Jerry", "John", "Tommy", "Talcom"]
+let commonPeopleAges = [25,28,30]
+
+for age in commonPeopleAges {
+    for people in commonPeople {
+        print("\(people) is \(age) years old")
+    }
+}
+
+var lyric = "Haters gonna"
+
+for _ in 1...5 {
+    lyric += " hate"
+}
+
+print(lyric)
+
+let femaleNames = ["Piper", "Alex", "Suzanne", "Gloria"]
+print(femaleNames[1...3])
+
+print(femaleNames[2...])
+
+
+// While Loop // Runs Infinite until condition is met
+var countDown = 10
+while countDown > 0 { // Runs until condition is met
+    print(countDown)
+    countDown -= 1
+}
+
+print("Rocket Blast")
+
+// Random Range
+let id = Int.random(in: 1...1000)
+let amount = Double.random(in: 0...1)
+
+var roll = 0
+
+while roll != 20 { // Work with logic of != more // Works more for when you dont know the when will the end point arrive
+    roll = Int.random(in: 1...20)
+    print("I rolled a \(roll)")
+}
+
+print("Critical hit")
+
+// while loops can loop until any arbitrary condition becomes false, which allows them until we tell them to stop
+// while loop comes in handy: we can keep the loop going around until we’re ready to exit
+
+var averageScore = 2.5
+while averageScore < 15.0 {
+    averageScore += 2.5
+    print("The average score is \(averageScore)")
+}
+
+
+// Skipping loops
+// continue - to skip current iteration of loop
+// break - to exit the loop entirely
+let fileNames = ["me.jpg", "work.txt", "sophie.jpg"]
+
+for fileName in fileNames {
+    if fileName.hasSuffix("txt") {
+        continue
+    }
+    
+    print("Found picture: \(fileName)")
+}
+
+let number1 = 10
+let number2 = 20
+var multiples = [Int]()
+
+for i in 1...100_000 {
+    if i.isMultiple(of: number1) && i.isMultiple(of: number2) {
+        multiples.append(i)
+        
+        if multiples.count == 10 {
+            break
+        }
+    }
+}
+
+print(multiples)
+
+let scores = [1, 8, 4, 3, 0, 5, 2]
+var count = 0
+
+for score in scores {
+    if score == 0 {
+        break
+    }
+
+    count += 1
+}
+
+print("You had \(count) scores before you got 0.")
+
+// Swift’s labeled statements // Allows us to name the loops for visual clarity
+let options = ["up", "down", "left", "right"]
+let secretCombination = ["up", "up", "right"]
+
+outerLoop: for option1 in options { // Naming a loop makes it easier to break it
+    for option2 in options {
+        for option3 in options {
+            print("In loop")
+            let attempt = [option1, option2, option3]
+
+            if attempt == secretCombination {
+                print("The combination is \(attempt)!")
+                break outerLoop
+            }
+        }
+    }
+}
+
+
+// Just like break, you can use continue with labeled statements if you want, but honestly I can’t remember ever seeing it done!
