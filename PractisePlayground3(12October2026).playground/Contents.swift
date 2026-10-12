@@ -170,3 +170,26 @@ case 2:
 default:
     print("A patridge in a pear tree")
 }
+
+// Ternary(Three) Conditional Operator -> Condition ? True : False
+1 + 5 == 6 ? print("true") : print("false")
+
+let votingAge = 18
+let canVote = age >= 18 ? print("You can Vote") : print("You are too young to vote")
+
+
+let hour = 23
+
+print(hour < 12 ? "Its before noon" : "Its after noon")
+
+let names = ["Jayne", "Kaylee", "Mal"]
+let crewCount = names.isEmpty ? "No One" : "\(names.count) people"
+print(crewCount)
+
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+let background = theme == .dark ? "black" : "white"
+print(background)
